@@ -41,3 +41,57 @@ div.slick-dots ul li button:focus-visible {
 	outline-color: white;
 }
 
+.breadcrumbs ol {
+	display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumbs .react-aria-Heading {
+    margin: 0;
+    font-size: 1em;
+}
+
+.breadcrumbs .react-aria-Item:not(:last-child)::after {
+	content: '/';
+	content: '/' / '';
+	alt: ' ';
+	padding: 0 5px;
+}
+
+.breadcrumbs .react-aria-Link {
+  --focus-ring-color: black;
+  --text-color: var(--spectrum-global-color-gray-800);
+  --text-color-current: var(--spectrum-global-color-gray-900);
+  --text-color-disabled: gray;
+
+  color: #414042;
+  outline: none;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.react-aria-Link[data-hovered] {
+    text-decoration: underline;
+}
+
+.react-aria-Link[aria-current] {
+    color: #414042;
+    font-weight: bold;
+}
+
+.react-aria-Link[data-focus-visible]:after {
+    content: '';
+    position: absolute;
+    inset: -2px -4px;
+    border-radius: 6px;
+    border: 2px solid black;
+}
+
+.react-aria-Link[aria-disabled] {
+    cursor: default;
+}
+
