@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
+import { twMerge } from 'tailwind-merge';
 import './globals.css';
-
-const inter = Open_Sans({ subsets: ['latin'] });
 
 import { Footer } from './components/footer';
 import { Header } from './components/header';
@@ -13,8 +12,10 @@ import { InstagramButton } from './components/social-medias/instagram';
 import { TwitterButton } from './components/social-medias/twitter';
 import { FacebookButton } from './components/social-medias/facebook';
 import { TiktokButton } from './components/social-medias/tiktok';
-import { twMerge } from 'tailwind-merge';
 import { Breadcrumbs } from './components/breadcrumbs';
+import { TawkMessengerReact } from './components/tawl-messenger';
+
+const inter = Open_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: 'Copeve: Comissão permanente do vestibular',
@@ -42,6 +43,11 @@ export default function RootLayout({
 				/>
 			</head>
 			<body className={inter.className}>
+				<TawkMessengerReact
+					propertyId="64d9465194cf5d49dc6a2be5"
+					widgetId="1h7oblc21"
+				/>
+
 				<div className="flex h-full min-h-screen flex-col bg-white dark:bg-black">
 					<Header />
 
@@ -57,7 +63,11 @@ export default function RootLayout({
 
 								<Spacer />
 							</div>
-							<div>
+							<div className="relative flex flex-1 flex-col">
+								<div
+									className="absolute -top-32 h-0 w-0"
+									id={'content-page-focus'}
+								/>
 								<Breadcrumbs />
 								{children}
 							</div>
